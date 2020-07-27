@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.sunekaer.mods.structureexpansion.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "structureexpansion.refmap.json",
+  "mixins": [
+    "CUpdateStructureBlockPacketMixin",
+    "StructureBlockTileEntityMixin"
+  ],
+  "client": [
+    "StructureBlockTileEntityRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
