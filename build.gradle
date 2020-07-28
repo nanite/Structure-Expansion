@@ -89,6 +89,7 @@ mixin {
 jar {
     manifest {
         attributes([
+                "MixinConfigs": "structureexpansion.mixins.json",
                 "Specification-Title": "structureexpansion",
                 "Specification-Vendor": "Sunekaer",
                 "Specification-Version": "1", // We are version 1 of ourselves
