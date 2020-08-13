@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(CUpdateStructureBlockPacket.class)
 public abstract class CUpdateStructureBlockPacketMixin {
-    @ModifyConstant(method = "readPacketData", constant = {@Constant(intValue = 32), @Constant(intValue = -32)})
+    @ModifyConstant(method = "readPacketData", constant = {@Constant(intValue = 48), @Constant(intValue = -48)})
     private int getMaxSizePos(int value){
         return value > 0 ? 127 : -128;
     }
