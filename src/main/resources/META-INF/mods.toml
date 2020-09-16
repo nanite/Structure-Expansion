@@ -1,5 +1,5 @@
 modLoader="javafml" 
-loaderVersion="[33,)"
+loaderVersion="[34,)"
 issueTrackerURL="https://github.com/Sunekaer/Structure-Expansion/issues"
 license="MIT License"
 [[mods]] 
@@ -17,13 +17,13 @@ Increases the size limit of the structure block from 48x48x48 to 127x127x127
 [[dependencies.structureexpansion]] #optional
     modId="forge"
     mandatory=true
-    versionRange="[33.0.0,)"
+    versionRange="[34.0.0,)"
     ordering="NONE"
     side="BOTH"
 # Here's another dependency
 [[dependencies.structureexpansion]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.2]"
+    versionRange="[1.16.3]"
     ordering="NONE"
     side="BOTH"
