@@ -9,6 +9,6 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 public abstract class StructureBlockTileEntityMixin {
     @ModifyConstant(method = "read", constant = {@Constant(intValue = 48), @Constant(intValue = -48)})
     private int getMaxSizePos(int value){
-        return value > 0 ? 127 : -128;
+        return value > 0 ? 255 : -256;
     }
 }
