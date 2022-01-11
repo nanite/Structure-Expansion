@@ -1,29 +1,29 @@
-modLoader="javafml" 
-loaderVersion="[34,)"
-issueTrackerURL="https://github.com/Sunekaer/Structure-Expansion/issues"
-license="MIT License"
-[[mods]] 
-modId="structureexpansion"
-version="${file.jarVersion}" 
-displayName="Structure Expansion"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/structure-expansion"
-logoFile="logo.png"
-authors="Sunekaer"
-description='''
+modLoader = "javafml"
+loaderVersion = "[39,)"
+issueTrackerURL = "https://github.com/nanite/Structure-Expansion/issues"
+license = "MIT License"
+[[mods]]
+modId = "structureexpansion"
+version = "${version}"
+displayName = "Structure Expansion"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/structure-expansion"
+logoFile = "logo.png"
+authors = "Sunekaer, LatvianModder"
+description = '''
 Small mod that Increases the size limit of the vanilla structure blocks
 
 Increases the size limit of the structure block from 48x48x48 to 127x127x127
 '''
-[[dependencies.structureexpansion]] #optional
-    modId="forge"
-    mandatory=true
-    versionRange="[34.0.0,)"
-    ordering="NONE"
-    side="BOTH"
-# Here's another dependency
 [[dependencies.structureexpansion]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.16.3]"
-    ordering="NONE"
-    side="BOTH"
+modId = "forge"
+mandatory = true
+versionRange = "[39,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.structureexpansion]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18,)"
+ordering = "NONE"
+side = "BOTH"
