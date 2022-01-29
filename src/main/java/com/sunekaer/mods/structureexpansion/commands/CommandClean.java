@@ -4,8 +4,10 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
@@ -24,14 +26,12 @@ public class CommandClean {
 		ResourceLocation name = new ResourceLocation(file);
 		StructureTemplate template = templateManager.getOrCreate(name);
 
-        /*
-		template.blocks.forEach(e -> {
-			int preSize = e.func_237157_a_().size();
-			e.func_237157_a_().removeIf(a -> a.state.getBlock() == Blocks.AIR);
-			int removed = preSize - e.func_237157_a_().size();
+		template.palettes.forEach(e ->{
+			int preSize = e.blocks().size();
+			e.blocks().removeIf(a -> a.state.getBlock() == Blocks.AIR);
+			int removed = preSize - e.blocks().size();
 			source.sendSuccess(new TranslatableComponent("Removed " + removed + " air blocks"), true);
 		});
-         */
 
 		templateManager.save(name);
 		return 1;
