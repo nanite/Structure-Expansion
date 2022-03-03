@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[39,)"
+loaderVersion = "[40,)"
 issueTrackerURL = "https://github.com/nanite/Structure-Expansion/issues"
 license = "MIT License"
 [[mods]]
@@ -17,7 +17,7 @@ Increases the size limit of the structure block from 48x48x48 to 127x127x127
 [[dependencies.structureexpansion]]
 modId = "forge"
 mandatory = true
-versionRange = "[39,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 
