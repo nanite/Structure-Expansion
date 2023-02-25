@@ -104,7 +104,7 @@ if (ENV.CURSE_TOKEN) {
 			id = project.curseforge_id
 			releaseType = project.curseforge_type
 			addGameVersion "Forge"
-			addGameVersion "1.18.2"
+			addGameVersion project.minecraft_version
 			mainArtifact(remapJar.archivePath)
 			changelog = file("./CHANGELOG.md")
 			changelogType = 'markdown'
