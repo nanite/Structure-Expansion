@@ -28,9 +28,9 @@ public class CommandClean {
 
 		template.palettes.forEach(e ->{
 			int preSize = e.blocks().size();
-			e.blocks().removeIf(a -> a.state().getBlock() == Blocks.AIR);
+			e.blocks().removeIf(a -> a.state.getBlock() == Blocks.AIR);
 			int removed = preSize - e.blocks().size();
-			source.sendSuccess(() -> Component.literal("Removed " + removed + " air blocks"), true);
+			source.sendSuccess(Component.literal("Removed " + removed + " air blocks"), true);
 		});
 
 		templateManager.save(name);
