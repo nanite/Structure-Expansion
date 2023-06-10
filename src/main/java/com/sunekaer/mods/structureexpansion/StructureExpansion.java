@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod("structureexpansion")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class StructureExpansion {
-	public static final int NEW_LIMIT = 512;
+	public static final int NEW_LIMIT = 200;
 	public static final int NEW_LIMIT_POS = NEW_LIMIT - 1;
 	public static final int NEW_LIMIT_NEG = -NEW_LIMIT_POS;
 
