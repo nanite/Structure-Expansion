@@ -1,7 +1,7 @@
 plugins {
 	id "dev.architectury.loom" version "0.12.0-SNAPSHOT"
 	id 'maven-publish'
-	id "com.matthewprenger.cursegradle" version "1.4.0"
+	id "me.modmuss50.mod-publish-plugin" version "0.3.0"
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
@@ -79,35 +79,55 @@ jar {
 publishing {
 	publications {
 		mavenForge(MavenPublication) {
-			artifactId = rootProject.archivesBaseName
+			artifactId = rootProject.archives_base_name + "-" + project.name
 			from components.java
 		}
 	}
 
 	repositories {
-		if (ENV.NANITE_TOKEN) {
+		if (providers.environmentVariable("NANITE_TOKEN").orNull) {
 			maven {
-				url "https://maven.nanite.dev/releases"
+				url "${maven_url}/releases"
 				credentials {
 					username = "nanite"
-					password = "${ENV.NANITE_TOKEN}"
+					password = providers.environmentVariable("NANITE_TOKEN").get()
 				}
 			}
 		}
 	}
 }
 
-if (ENV.CURSE_TOKEN) {
-	curseforge {
-		apiKey = ENV.CURSE_TOKEN
-		project {
-			id = project.curseforge_id
-			releaseType = project.curseforge_type
-			addGameVersion "Forge"
-			addGameVersion project.minecraft_version
-			mainArtifact(remapJar.archivePath)
-			changelog = file("./CHANGELOG.md")
-			changelogType = 'markdown'
+publishMods {
+	dryRun = providers.environmentVariable("CURSE_TOKEN").getOrNull() == null
+	changelog = file("./CHANGELOG.md").text
+	version = "${mod_version}"
+	type = STABLE
+
+	def forgeOptions = publishOptions {
+		file = project.provider { project.tasks.remapJar }.flatMap { it.archiveFile }
+		displayName = "${project.name} Forge ${mod_version}+mc${minecraft_version}"
+		modLoaders.add("forge")
+	}
+
+	def curseForgeOptions = curseforgeOptions {
+		accessToken = providers.environmentVariable("CURSE_TOKEN")
+		projectId = "${curseforge_id}"
+		minecraftVersions.add("${minecraft_version}")
+	}
+
+	def modrinthOptions = modrinthOptions {
+		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+		projectId = "${modrinth_id}"
+		minecraftVersions.add("${minecraft_version}")
+	}
+
+	curseforge("curseforgeForge") {
+		from(curseForgeOptions, forgeOptions)
+	}
+
+	if (providers.environmentVariable("MODRINTH_TOKEN").getOrNull() != null) {
+		modrinth("modrinthForge") {
+			from(modrinthOptions, forgeOptions)
 		}
 	}
 }

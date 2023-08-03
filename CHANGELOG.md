@@ -1,3 +1,3 @@
 # Changelog
 
-Build on 1.20.1
+Updated build script
