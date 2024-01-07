@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/nanite/Structure-Expansion/issues"
+license = "MIT License"
+
+[[mods]]
+modId = "structureexpansion"
+version = "${version}"
+displayName = "Structure Expansion"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/structure-expansion"
+logoFile = "logo.png"
+authors = "Sunekaer, LatvianModder"
+description = '''
+Small mod that Increases the size limit of the vanilla structure blocks
+
+Increases the size limit of the structure block from 48x48x48 to 127x127x127
+'''
+
+[[dependencies.structureexpansion]]
+modId = "neoforge"
+required = true
+versionRange = "[20.4,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.structureexpansion]]
+modId="minecraft"
+required=true
+versionRange="[1.20.4,)"
+ordering="NONE"
+side="BOTH"
