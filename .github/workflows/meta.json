@@ -1,0 +1,49 @@
+{
+  "spec": 2,
+  "maven": [
+    {
+      "name": "Common",
+      "url": "https://maven.nanite.dev/releases/com/sunekaer/mods/structure-expansion-common"
+    },
+    {
+      "name": "Forge",
+      "url": "https://maven.nanite.dev/releases/com/sunekaer/mods/structure-expansion-forge"
+    },
+    {
+      "name": "Fabric",
+      "url": "https://maven.nanite.dev/releases/com/sunekaer/mods/structure-expansion-fabric"
+    },
+    {
+      "name": "NeoForge",
+      "url": "https://maven.nanite.dev/releases/com/sunekaer/mods/structure-expansion-neoforge"
+    }
+  ],
+  "providers": [
+    {
+      "type": "identity",
+      "name": "Modrinth",
+      "id": "IKJL3zrR",
+      "slug": "structure-expansion",
+      "variants": ["forge", "fabric", "neoforge"]
+    },
+    {
+      "type": "identity",
+      "name": "CurseForge",
+      "id": "398430",
+      "slug": "structure-expansion",
+      "variants": ["forge", "fabric", "neoforge"]
+    },
+    {
+      "type": "url",
+      "name": "GitHub",
+      "url": "https://github.com/nanite/structure-expansion",
+      "variants": ["forge", "fabric", "neoforge", "common"]
+    }
+  ],
+  "authors": [
+    {
+      "name": "Sunekaer",
+      "role": "Owner"
+    }
+  ] 
+}
