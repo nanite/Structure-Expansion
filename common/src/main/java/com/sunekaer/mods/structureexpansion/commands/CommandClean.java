@@ -23,7 +23,7 @@ public class CommandClean {
 	private static int cleanStruc(CommandSourceStack source, String file) {
 		ServerLevel worldServer = source.getLevel();
 		StructureTemplateManager templateManager = worldServer.getStructureManager();
-		ResourceLocation name = new ResourceLocation(file);
+		ResourceLocation name = ResourceLocation.withDefaultNamespace(file);
 		StructureTemplate template = templateManager.getOrCreate(name);
 
 		template.palettes.forEach(e ->{

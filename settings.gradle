@@ -9,6 +9,6 @@ pluginManagement {
     }
 }
 
-include "common", "forge", "neoforge",
+include "common", "neoforge",
 
 rootProject.name = 'StructureExpansion'

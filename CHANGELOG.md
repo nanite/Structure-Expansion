@@ -1,3 +1,2 @@
 # Changelog
-
-Fix mixin on neo
+Update to 1.21
