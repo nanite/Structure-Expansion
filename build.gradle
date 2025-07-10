@@ -31,6 +31,9 @@ allprojects {
     group = rootProject.maven_group
 
     repositories {
+        maven {
+            url 'https://maven.neoforged.net/releases'
+        }
     }
 
     tasks.withType(JavaCompile) {
@@ -49,12 +52,6 @@ publishMods {
     version = "${mod_version}"
     type = STABLE
 
-//    def forgeOptions = publishOptions {
-//        file = project.provider { project(":forge").tasks.remapJar }.flatMap { it.archiveFile }
-//        displayName = "[FORGE][${minecraft_version}] ${project.name} ${mod_version}"
-//        modLoaders.add("forge")
-//    }
-
     def neoForge = publishOptions {
         file = project.provider { project(":neoforge").tasks.remapJar }.flatMap { it.archiveFile }
         displayName = "[NEOFORGE][${minecraft_version}] ${project.name} ${mod_version}"
@@ -72,20 +69,12 @@ publishMods {
         projectId = "${modrinth_id}"
         minecraftVersions.add("${minecraft_version}")
     }
-//
-//    curseforge("curseforgeForge") {
-//        from(curseForgeOptions, forgeOptions)
-//    }
 
     curseforge("curseforgeNeoForge") {
         from(curseForgeOptions, neoForge)
     }
 
     if (providers.environmentVariable("MODRINTH_TOKEN").getOrNull() != null) {
-//        modrinth("modrinthForge") {
-//            from(modrinthOptions, forgeOptions)
-//        }
-
         modrinth("modrinthNeoforge") {
             from(modrinthOptions, neoForge)
         }
