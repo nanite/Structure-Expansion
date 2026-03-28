@@ -1,12 +1,12 @@
 package com.sunekaer.mods.structureexpansion.mixin;
 
 import com.sunekaer.mods.structureexpansion.StructureExpansion;
-import net.minecraft.client.renderer.blockentity.StructureBlockRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityWithBoundingBoxRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
-@Mixin(StructureBlockRenderer.class)
-public abstract class StructureBlockRendererMixin {
+@Mixin(BlockEntityWithBoundingBoxRenderer.class)
+public abstract class BlockEntityWithBoundingBoxRendererMixin {
 	/**
 	 * @author Sunekaer
 	 * @reason Extend the view distance of Structure Block.

@@ -5,7 +5,7 @@ import com.mojang.brigadier.builder.ArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 public class CommandClean {
 	public static ArgumentBuilder<CommandSourceStack, ?> register() {
 		return Commands.literal("clean")
-				.requires(cs -> cs.hasPermission(2))
+				.requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS) )
 				.then(Commands.argument("structure_file", StringArgumentType.string())
 						.executes(ctx -> cleanStruc(ctx.getSource(), StringArgumentType.getString(ctx, "structure_file")))
 				);
@@ -23,7 +23,7 @@ public class CommandClean {
 	private static int cleanStruc(CommandSourceStack source, String file) {
 		ServerLevel worldServer = source.getLevel();
 		StructureTemplateManager templateManager = worldServer.getStructureManager();
-		ResourceLocation name = ResourceLocation.withDefaultNamespace(file);
+		Identifier name = Identifier.withDefaultNamespace(file);
 		StructureTemplate template = templateManager.getOrCreate(name);
 
 		template.palettes.forEach(e ->{
