@@ -1,9 +1,9 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.141'
     id 'idea'
-    id "me.modmuss50.mod-publish-plugin" version "1.1.0"
+    id 'net.neoforged.moddev' version '2.0.147'
+    id "me.modmuss50.mod-publish-plugin" version "2.2.0"
 }
 
 version = mod_version
@@ -97,12 +97,16 @@ publishMods {
         accessToken = providers.environmentVariable("CURSE_TOKEN")
         projectId = "${curseforge_id}"
         minecraftVersions.add("${minecraft_version}")
+        javaVersions.add(JavaVersion.VERSION_25)
+        client = true
+        server = true
     }
 
     def modrinthOptions = modrinthOptions {
         accessToken = providers.environmentVariable("MODRINTH_TOKEN")
         projectId = "${modrinth_id}"
         minecraftVersions.add("${minecraft_version}")
+        environment = CLIENT_AND_SERVER
     }
 
     curseforge("curseforgeNeoForge") {

@@ -8,7 +8,7 @@ modId="${mod_id}"
 version="${version}"
 displayName="Structure Expansion"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/structure-expansion"
-logoFile="logo.png"
+iconFile="logo.png"
 authors="Sunekaer, LatvianModder"
 description='''
 Small mod that Increases the size limit of the vanilla structure blocks
